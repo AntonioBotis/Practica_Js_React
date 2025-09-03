@@ -63,7 +63,7 @@ if(mark_higher_bmi)
     console.log(`Mark has a higher BMI ${bmi_mark} than John ${bmi_john}`);
 else
     console.log(`John has a higher BMI ${bmi_john} than Mark ${bmi_mark}`);
-*/
+
 //challenge3
 const dolphins=(96+108+89)/3;
 const koalas=(88+91+110)/3;
@@ -77,3 +77,9 @@ else if(dolphins<koalas){
 else{
     console.log(`Delfini si Koala sunt egali`);
 }
+*/
+
+//challenge4
+const bill=301;
+const tip= bill=>50 && bill<=300 ? bill*0.15 : bill*0.2;
+console.log(`${tip}`);
