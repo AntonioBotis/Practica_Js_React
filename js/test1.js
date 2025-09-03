@@ -45,7 +45,7 @@ console.log('marian \n\
     gigi becali' );
 
 console.log(`marian
-smekeru`);*/
+smekeru`);
 
 //chalenge2
  const mass_mark=95;
@@ -63,6 +63,17 @@ if(mark_higher_bmi)
     console.log(`Mark has a higher BMI ${bmi_mark} than John ${bmi_john}`);
 else
     console.log(`John has a higher BMI ${bmi_john} than Mark ${bmi_mark}`);
+*/
+//challenge3
+const dolphins=(96+108+89)/3;
+const koalas=(88+91+110)/3;
 
-
-
+if(dolphins>koalas){
+    console.log(`Delfini smekeri`);
+}
+else if(dolphins<koalas){
+    console.log(`Koala smekeri`);
+}
+else{
+    console.log(`Delfini si Koala sunt egali`);
+}
