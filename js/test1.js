@@ -17,7 +17,7 @@ console.log(x);
 
 console.log(x>an);
 
-//test1
+//challenge1
 const mass_mark=78;
 const height_mark=1.69;
 const mass_john=92;
@@ -39,8 +39,30 @@ const bmi_mark=mass_mark/(height_mark**2);
 const bmi_john=mass_john/(height_john**2);
 
 const mark_higher_bmi=bmi_mark>bmi_john;
-console.log(bmi_mark, bmi_john, mark_higher_bmi);*/
+console.log(bmi_mark, bmi_john, mark_higher_bmi);
 
+console.log('marian \n\
+    gigi becali' );
+
+console.log(`marian
+smekeru`);*/
+
+//chalenge2
+ const mass_mark=95;
+const height_mark=1.88;
+const mass_john=85;
+const height_john=1.76;
+
+const bmi_mark=mass_mark/(height_mark**2);
+const bmi_john=mass_john/(height_john**2);
+
+const mark_higher_bmi=bmi_mark>bmi_john;
+console.log(bmi_mark, bmi_john, mark_higher_bmi);
+
+if(mark_higher_bmi)
+    console.log(`Mark has a higher BMI ${bmi_mark} than John ${bmi_john}`);
+else
+    console.log(`John has a higher BMI ${bmi_john} than Mark ${bmi_mark}`);
 
 
 
