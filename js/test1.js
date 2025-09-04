@@ -80,6 +80,6 @@ else{
 */
 
 //challenge4
-const bill=301;
-const tip= bill=>50 && bill<=300 ? bill*0.15 : bill*0.2;
+const bill=300;
+const tip= bill>=50 && bill<=300 ? bill*0.15 : bill*0.2;
 console.log(`${tip}`);
