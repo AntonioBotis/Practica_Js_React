@@ -135,7 +135,7 @@ for(let i=0;i<total.length; i++)
 {
     console.log(`Total: ${total[i]}  = tip: ${tips[i]} + bills: ${bills[i]}`);
 }
-    */
+    
 
 //challenge3 section3
 
@@ -166,3 +166,108 @@ const gigel={
 console.log(mario.bmi(), gigel.bmi());
 
 mario.bmi() > gigel.bmi() ? console.log(`${mario.name} has a higher BMI ${mario.bmi()} than ${gigel.name} ${gigel.bmi()}`) : console.log(`${gigel.name} has a higher BMI ${gigel.bmi()} than ${mario.name} ${mario.bmi()}`);
+
+*/
+//challenge4 section3
+
+const bills=[22,295,176,440,37,105,10,1100,86,52];
+
+const tips=[];
+const totals=[];
+
+for(let i=0;i<bills.length;i++)
+    tips.push(bills[i]>=50 && bills[i]<=300 ? bills[i]*0.15 : bills[i]*0.2);
+for(let i=0;i<bills.length;i++)
+    totals.push(bills[i]+tips[i]);
+
+const average=function(a){
+    let sum=0;
+    for(let i=0;i<a.length;i++)
+        sum+=a[i];
+    return sum/a.length;
+}
+
+console.log(average(totals));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
