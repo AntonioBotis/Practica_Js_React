@@ -1,3 +1,4 @@
+'use strict';
 
 /*alert("Hello World");
 let aux=true;
@@ -77,9 +78,37 @@ else if(dolphins<koalas){
 else{
     console.log(`Delfini si Koala sunt egali`);
 }
-*/
+
 
 //challenge4
 const bill=300;
 const tip= bill>=50 && bill<=300 ? bill*0.15 : bill*0.2;
 console.log(`${tip}`);
+
+//challenge1 section3 test1
+const average=(a,b,c)=>(a+b+c)/3;
+const scor_delfini=average(44,23,71);
+const scor_koala=average(65,54,49);
+console.log(scor_delfini, scor_koala);
+function castigator(a,b)
+{
+    if(a>=2*b)
+        console.log(`Delfinii castiga (${a} vs ${b})`);
+    else
+        console.log(`Koala castiga (${b} vs ${a})`);
+}
+console.log(castigator(scor_delfini, scor_koala));
+*/
+
+const average=(a,b,c)=>(a+b+c)/3;
+const scor_delfini=average(85,54,41);
+const scor_koala=average(23,34,27);
+console.log(scor_delfini, scor_koala);
+function castigator(a,b)
+{
+    if(a>=2*b)
+        console.log(`Delfinii castiga (${a} vs ${b})`);
+    else
+        console.log(`Koala castiga (${b} vs ${a})`);
+}
+console.log(castigator(scor_delfini, scor_koala));
