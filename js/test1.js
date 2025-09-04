@@ -98,7 +98,6 @@ function castigator(a,b)
         console.log(`Koala castiga (${b} vs ${a})`);
 }
 console.log(castigator(scor_delfini, scor_koala));
-*/
 
 const average=(a,b,c)=>(a+b+c)/3;
 const scor_delfini=average(85,54,41);
@@ -112,3 +111,27 @@ function castigator(a,b)
         console.log(`Koala castiga (${b} vs ${a})`);
 }
 console.log(castigator(scor_delfini, scor_koala));
+*/
+
+//challenge2 section3
+function calc_tip(a)
+{
+   return  a >=50 && a <=300 ? a*0.15 : a*0.2; 
+}
+
+const bills=[125,555,44];
+const tips=[];
+for(let i=0;i<bills.length; i++)
+{
+   tips.push(calc_tip(bills[i]));
+}
+const total=[];
+for(let i=0;i<bills.length; i++)
+{
+   total.push(bills[i]+tips[i]);
+}
+
+for(let i=0;i<total.length; i++)
+{
+    console.log(`Total: ${total[i]}  = tip: ${tips[i]} + bills: ${bills[i]}`);
+}
