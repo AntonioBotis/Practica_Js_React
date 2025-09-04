@@ -111,7 +111,7 @@ function castigator(a,b)
         console.log(`Koala castiga (${b} vs ${a})`);
 }
 console.log(castigator(scor_delfini, scor_koala));
-*/
+
 
 //challenge2 section3
 function calc_tip(a)
@@ -135,3 +135,34 @@ for(let i=0;i<total.length; i++)
 {
     console.log(`Total: ${total[i]}  = tip: ${tips[i]} + bills: ${bills[i]}`);
 }
+    */
+
+//challenge3 section3
+
+
+const mario={
+    name:"Mario Smekeru",
+    mass: 150 ,
+    height: 1.4,
+    bmi:function()
+    {
+    return this.mass/(this.height**2);
+
+    }
+    
+}
+
+const gigel={
+    name:"gigel patrone",
+    mass: 190 ,
+    height: 2.4,
+    bmi:function()
+    {
+    return this.mass/(this.height**2);
+    
+    }
+    
+}
+console.log(mario.bmi(), gigel.bmi());
+
+mario.bmi() > gigel.bmi() ? console.log(`${mario.name} has a higher BMI ${mario.bmi()} than ${gigel.name} ${gigel.bmi()}`) : console.log(`${gigel.name} has a higher BMI ${gigel.bmi()} than ${mario.name} ${mario.bmi()}`);
