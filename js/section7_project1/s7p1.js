@@ -12,6 +12,7 @@ document.querySelector('.guess').value=99;*/
 const number=Math.trunc(Math.random()*20)+5;
 let score=20;
 let highscore=0;
+let aux=0;
 
 
 document.querySelector('.check').addEventListener('click', function() 
@@ -32,7 +33,9 @@ document.querySelector('.check').addEventListener('click', function()
         document.querySelector('body').style.backgroundColor='#60b347';
         document.querySelector('.number').style.width='30rem';
         document.querySelector('.number').textContent=number;
-        document.querySelector('.highscore').textContent=++highscore;
+        if(aux<score)
+        {document.querySelector('.highscore').textContent=score;
+        aux=score;}
     
     }
     else if(guess>number & score>0)
