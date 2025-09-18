@@ -43,6 +43,8 @@ button_roll.addEventListener('click',function()
     if(score[active_player]>=10)
     {
         console.log('game over');
+        document.querySelector(`player--${active_player}`).classList.add('player--winner');
+        document.querySelector(`player--${active_player}`).classList.remove('player--active');
         dice.classList.add('hidden'); 
     }
     else{
@@ -90,6 +92,7 @@ button_new.addEventListener('click',function()
     document.getElementById(`current--0`).textContent=0;
      document.getElementById(`current--1`).textContent=0;
      active_player=0;
+
      player0.classList.add('player--active');
      player1.classList.remove('player--active');
 })
