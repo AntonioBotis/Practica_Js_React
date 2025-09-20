@@ -49,7 +49,9 @@ const game = {
   },
 };
 
-const [players1,players2]=game.players;
+
+
+/*const [players1,players2]=game.players;
 
 const [gk,...fieldPlayers]=players1;
 
@@ -76,4 +78,42 @@ printGoals(...game.scored);
 
 
 team1<team2 && console.log('Team 1');
-team1>team2 && console.log('team2');
+team1>team2 && console.log('team2');*/
+let i=0;
+for (const goal_name of game.scored) {
+  i++;
+  console.log(`${goal_name}:${i}`);
+  
+}
+
+const oddds=Object.values(game.odds);
+let average=0;
+for(const odd of oddds)
+
+  average+=odd;
+
+average/=oddds.length;
+console.log(average);
+
+
+  console.log(`Odd of victory ${game.odds.team1} for ${game.team1}\nOdd of draw: ${game.odds.x}\nOdd of Vicotry ${game.odds.team2} for ${game.team2}` ) ;
+
+i=0;
+let arr;
+for(const goal_name of game.scored)
+{
+  for (const name of game.scored) {
+    if(name===goal_name)
+      {i++;
+        arr[goal_name]++;
+      }
+
+  }
+}
+
+console.log(arr);
+
+
+
+  
+  
