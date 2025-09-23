@@ -56,10 +56,6 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 GOOD LUCK 😀
-*/
-
-const dogsAges=[5, 2, 4, 1, 15, 8, 3];
-
 const calcAverageHumanAge=function(abc)
 {
     let humanAge=abc.map((age)=>{if(age<=2)return age*2;else return age=16+age*4; });
@@ -72,29 +68,235 @@ const calcAverageHumanAge=function(abc)
 
 
 }
-calcAverageHumanAge(dogsAges);
+calcAverageHumanAge(dogsAges);const dogsAges=[5, 2, 4, 1, 15, 8, 3];
+const calcAverageHumanAge=abc=>abc
+.map(age=>age<=2 ? 2*age : 16+age*4)
+.filter(age=> age>=18)
+.reduce((sum,age,i,arr)=>sum+age/arr.length,0);
+   
+
+
+
+const arr1=calcAverageHumanAge(dogsAges);
+console.log(arr1);*/
+
+
+
+// Coding Challenge #4
+
+/*
+This time, Julia and Kate are studying the activity levels of different dog breeds.
+
+YOUR TASKS:
+1. Store the the average weight of a "Husky" in a variable "huskyWeight"
+2. Find the name of the only breed that likes both "running" and "fetch" ("dogBothActivities" variable)
+3. Create an array "allActivities" of all the activities of all the dog breeds
+4. Create an array "uniqueActivities" that contains only the unique activities (no activity repetitions). HINT: Use a technique with a special data structure that we studied a few sections ago.
+5. Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
+6. Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
+7. Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
+
+BONUS: What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
+
+TEST DATA:
+const breeds = [
+  {
+    breed: 'German Shepherd',
+    averageWeight: 32,
+    activities: ['fetch', 'swimming'],
+  },
+  {
+    breed: 'Dalmatian',
+    averageWeight: 24,
+    activities: ['running', 'fetch', 'agility'],
+  },
+  {
+    breed: 'Labrador',
+    averageWeight: 28,
+    activities: ['swimming', 'fetch'],
+  },
+  {
+    breed: 'Beagle',
+    averageWeight: 12,
+    activities: ['digging', 'fetch'],
+  },
+  {
+    breed: 'Husky',
+    averageWeight: 26,
+    activities: ['running', 'agility', 'swimming'],
+  },
+  {
+    breed: 'Bulldog',
+    averageWeight: 36,
+    activities: ['sleeping'],
+  },
+  {
+    breed: 'Poodle',
+    averageWeight: 18,
+    activities: ['agility', 'fetch'],
+  },
+];
+
+
+//1
+const husky = breeds.find(dog => dog.breed === 'Husky');
+if (husky) {
+  husky.huskyWeight = husky.averageWeight;
+}
+console.log(husky);
+//2
+
+const dogBothActivities=breeds.find(dog=>['running', 'fetch'].every(act=>dog.activities.includes(act)));
+console.log(dogBothActivities);
+
+//3 si 4
+
+const allActivities=new Set(breeds.flatMap((dog) => dog.activities));
+console.log(...allActivities);
+
+//5
+
+const swimmingAdjacent=new Set((breeds.filter(dog=>dog.activities.includes('swimming'))).flatMap((dog) => dog.activities).filter((act)=>{if(act!=='swimming')return act}));
+
+console.log(...swimmingAdjacent);
+
+//6
+const boolean=breeds.every(dog=>dog.averageWeight>=10);
+console.log(boolean);
+
+//7
+
+const boolean2=breeds.some(dog=>dog.activities.length>=3);
+
+
+console.log(boolean2);
+
+//bonus
+
+const bruv=Math.max(...(breeds.filter(dog=> dog.activities.includes('fetch'))).map(dog=>dog.averageWeight));
+
+console.log(bruv);*/
 
 
 
 
+// Coding Challenge #5
+
+/* 
+Julia and Kate are still studying dogs. This time they are want to figure out if the dogs in their are eating too much or too little food.
+
+- Formula for calculating recommended food portion: recommendedFood = weight ** 0.75 * 28. (The result is in grams of food, and the weight needs to be in kg)
+- Eating too much means the dog's current food portion is larger than the recommended portion, and eating too little is the opposite.
+- Eating an okay amount means the dog's current food portion is within a range 10% above and below the recommended portion (see hint).
+
+YOUR TASKS:
+1. Loop over the array containing dog objects, and for each dog, calculate the recommended food portion (recFood) and add it to the object as a new property. Do NOT create a new array, simply loop over the array (We never did this before, so think about how you can do this without creating a new array).
+2. Find Sarah's dog and log to the console whether it's eating too much or too little. HINT: Some dogs have multiple users, so you first need to find Sarah in the owners array, and so this one is a bit tricky (on purpose) 🤓
+3. Create an array containing all owners of dogs who eat too much (ownersTooMuch) and an array with all owners of dogs who eat too little (ownersTooLittle).
+4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
+5. Log to the console whether there is ANY dog eating EXACTLY the amount of food that is recommended (just true or false)
+6. Log to the console whether ALL of the dogs are eating an OKAY amount of food (just true or false)
+7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
+8. Group the dogs into the following 3 groups: 'exact', 'too-much' and 'too-little', based on whether they are eating too much, too little or the exact amount of food, based on the recommended food portion.
+9. Group the dogs by the number of owners they have
+10. Sort the dogs array by recommended food portion in an ascending order. Make sure to NOT mutate the original array!
+
+HINT 1: Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
+HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+
+TEST DATA:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John', 'Leo'] },
+  { weight: 18, curFood: 244, owners: ['Joe'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+GOOD LUCK 😀
+*/
 
 
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 133.19119688030474, owners: ['Matilda'] },
+  { weight: 13, curFood: 
+191.69710117664528, owners: ['Sarah', 'John', 'Leo'] },
+  { weight: 18, curFood: 244, owners: ['Joe'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
 
 
+//function formula recommendedFood
+const recommendedFood=(weight)=>(weight ** 0.75 * 28);
+const finalreccomandation=function(recommended,food){
+   if(food>(recommended*0.90) && food < (recommended*1.10))
+    console.log('yo dog eating good fam');
+    else if(food<recommended)
+      console.log('yo dog NEEDS TO EAT ASAP');
+    else console.log('STOP LETTIN THA FAT ASS EAT');
+}
+
+//1
+dogs.forEach(dog => {
+  dog.recFood=recommendedFood(dog.weight);
+  finalreccomandation(dog.recFood,dog.curFood);
+
+});
+
+//2
+const sarahDog=(dogs.filter((dog)=>dog.owners.includes('Sarah')));
+finalreccomandation(sarahDog.recFood,sarahDog.curFood);
+
+//3
+const finalreccomandation2=function(recommended,food){
+   if(food>(recommended*0.90) && food < (recommended*1.10))
+    return 0;
+    else if(food<recommended)
+      return -1;
+    else return 1;
+}
+
+const ownersTooMuch=dogs.filter((dog)=>finalreccomandation2(dog.recFood,dog.curFood)>0);
+const ownersTooLittle=dogs.filter((dog)=>finalreccomandation2(dog.recFood,dog.curFood)<0);
+console.log(ownersTooMuch);
+console.log(ownersTooLittle);
+
+//4
+const buildOwners=function(dog)
+{
+  let owners=dog.owners.join(' and ')+'`s';
+  console.log(owners);
+}
+ownersTooMuch.forEach(dog => {
+  let owners=dog.owners.join(' and ')+'`s';
+  console.log(`${owners} dog eats too much!`);
+  
+});
+ownersTooLittle.forEach(dog => {
+  let owners=dog.owners.join(' and ')+'`s';
+  console.log(`${owners} dog eats too litte!`);
+  
+});
+
+//5 133.19119688030474
 
 
+const dogsEatEqual=dogs.some((dog)=>dog.curFood===dog.recFood);
+console.log(dogsEatEqual);
 
 
+//const boolean3=dogs.flatMap((dog)=>dog.curFood===dog.recFood? 1:0);
 
+//6
 
+const allDogsEat=dogs.every((dog)=>dog.curFood===dog.recFood);
+console.log(allDogsEat);
 
-
-
-
-
-
-
-
+//7
+const arrayAllDogsEatOk=dogs.filter((dog)=>dog.curFood===dog.recFood);
+console.log(arrayAllDogsEatOk);
+//8
 
 
 
