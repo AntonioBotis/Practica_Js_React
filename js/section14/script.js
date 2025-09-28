@@ -129,7 +129,6 @@ console.log(bmveu.speed);
 DATA CAR 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
 GOOD LUCK 😀
-*/
 
 const Car=function(model,speed)
 {
@@ -174,4 +173,62 @@ IX3.acc();
 
 
 console.log(IX3.speed);
-console.log(IX3.charge);
+console.log(IX3.charge);*/
+
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+GOOD LUCK 😀
+*/
+
+class Car{
+    constructor (model,speed)
+    {
+        this.model=model;
+        this.speed=speed;
+    }
+
+    acc(){
+        this.acc+=10;
+        console.log(acc);
+    }
+    brake(){
+        this.acc-=20;
+    }
+
+}
+
+class EV extends Car
+{
+    #charge;
+    constructor(model,speed,charge)
+    {
+        super(model,speed);
+        this.#charge=charge;
+    }
+    charge(input)
+    {
+        this.#charge+=input;
+        console.log(`este incarcata la ${this.#charge}`);
+        return this
+    }
+    acc()
+    {
+        this.speed+=20;
+        this.#charge-=5;
+        console.log(`mere cu viteza ${this.speed} si nivel baterie in scadere ${this.#charge}`);
+        return this;
+    }
+}
+
+const EQC=new EV('mercedes',90,70);
+EQC.acc();
+EQC.charge(20);
